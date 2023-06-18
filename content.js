@@ -1,3 +1,11 @@
+// Fetch the CSS file once and store it
+var css;
+fetch(chrome.runtime.getURL('jira.css'))
+  .then(response => response.text())
+  .then(text => {
+    css = text;
+  });
+
 function main() {
 
   // Create the navigation bar
@@ -27,7 +35,7 @@ function main() {
     'Products': 'https://skoop-jira.atlassian.net/wiki/spaces/PPO/overview?mode=global'
   };
 
-  
+
   // Create header links
   for (let header in headers) {
     var a = document.createElement('a');
@@ -35,12 +43,12 @@ function main() {
     a.href = headers[header];
     a.style.cursor = 'pointer';
     a.style.color = 'white';
-    a.className = 'header-link'; // Add this line
+    a.className = 'header-link'; 
     navBar.appendChild(a);
   }
 
   document.body.prepend(navBar);
-  
+
 
   function replaceButtons() {
     var buttons = document.querySelectorAll('div.ap-container.conf-macro.output-block');
@@ -69,13 +77,30 @@ function main() {
         modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
         var iframe = document.createElement('iframe');
         iframe.src = originalUrl;
-        iframe.style.width = '70%'; // Changed to 70%
-        iframe.style.height = 'calc(70% - 30px)'; // Changed to 70%
+        iframe.style.width = '70%'; 
+        iframe.style.height = 'calc(70% - 30px)'; 
         iframe.style.border = 'none';
         iframe.style.position = 'absolute';
-        iframe.style.left = '15%'; // Adjusted to center the iframe
-        iframe.style.top = 'calc(15% + 30px)'; // Adjusted to center the iframe
-        iframe.style.borderRadius = '0 0 10px 10px'; // Add this line
+        iframe.style.left = '15%'; 
+        iframe.style.top = 'calc(15% + 30px)'; 
+        iframe.style.borderRadius = '0 0 10px 10px';       
+ 
+        
+        setTimeout(function() {
+          var style = document.createElement('style');
+          style.textContent = css;
+          iframe.contentDocument.head.appendChild(style);
+        }, 1500); // 1 second delay
+
+        iframe.addEventListener('load', function () {
+          setTimeout(function() {
+            var style = document.createElement('style');
+            style.textContent = css;
+            iframe.contentDocument.head.appendChild(style);
+          }, 100); 
+        });
+
+
         var closeButton = document.createElement('button');
         closeButton.textContent = 'X';
         closeButton.style.position = 'absolute';
@@ -93,16 +118,16 @@ function main() {
         closeButton.addEventListener('click', function () {
           document.body.removeChild(modal);
         });
-        var header = document.createElement('div'); // Add this line
-        header.style.width = '70%'; // Changed to 70%
-        header.style.height = '40px'; // Add this line
-        header.style.position = 'absolute'; // Add this line
-        header.style.left = '15%'; // Adjusted to center the header
-        header.style.top = '15%'; // Adjusted to center the header
-        header.style.backgroundColor = '#fff'; // Add this line
-        header.style.borderRadius = '10px 10px 0 0'; // Add this line
-        header.appendChild(closeButton); // Add this line
-        modal.appendChild(header); // Add this line
+        var header = document.createElement('div'); 
+        header.style.width = '70%'; 
+        header.style.height = '40px'; 
+        header.style.position = 'absolute'; 
+        header.style.left = '15%'; 
+        header.style.top = '15%'; 
+        header.style.backgroundColor = '#fff'; 
+        header.style.borderRadius = '10px 10px 0 0'; 
+        header.appendChild(closeButton); 
+        modal.appendChild(header); 
         modal.appendChild(iframe);
         document.body.appendChild(modal);
         function closeModal() {
@@ -113,7 +138,7 @@ function main() {
           setTimeout(function () {
             document.body.removeChild(modal);
             window.location.reload();
-          }, 1000);
+          }, 2000);
         }
         iframe.addEventListener('load', function () {
           var closeButton = iframe.contentDocument.querySelector('#issue-create-submit');
@@ -138,8 +163,8 @@ function main() {
         newTabButton.addEventListener('click', function () {
           window.open(originalUrl, '_blank');
         });
-    
-        header.appendChild(newTabButton); // Add this line
+
+        header.appendChild(newTabButton); 
       });
       button.parentNode.replaceChild(newButton, button);
     });
@@ -156,13 +181,29 @@ function main() {
     modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
     var iframe = document.createElement('iframe');
     iframe.src = link;
-    iframe.style.width = '95%'; // Changed to 95%
-    iframe.style.height = 'calc(95% - 30px)'; // Changed to 95%
+    iframe.style.width = '95%'; 
+    iframe.style.height = 'calc(95% - 30px)'; 
     iframe.style.border = 'none';
     iframe.style.position = 'absolute';
-    iframe.style.left = '2.5%'; // Adjusted to center the iframe
-    iframe.style.top = 'calc(2.5% + 30px)'; // Adjusted to center the iframe
-    iframe.style.borderRadius = '0 0 10px 10px'; // Add this line
+    iframe.style.left = '2.5%'; 
+    iframe.style.top = 'calc(2.5% + 30px)'; 
+    iframe.style.borderRadius = '0 0 10px 10px'; 
+   
+    
+    setTimeout(function() {
+      var style = document.createElement('style');
+      style.textContent = css;
+      iframe.contentDocument.head.appendChild(style);
+    }, 1500); // 1 second delay
+
+    iframe.addEventListener('load', function () {
+      setTimeout(function() {
+        var style = document.createElement('style');
+        style.textContent = css;
+        iframe.contentDocument.head.appendChild(style);
+      }, 100); 
+    });
+
     var closeButton = document.createElement('button');
     closeButton.textContent = 'X';
     closeButton.style.position = 'absolute';
@@ -180,16 +221,16 @@ function main() {
     closeButton.addEventListener('click', function () {
       document.body.removeChild(modal);
     });
-    var header = document.createElement('div'); // Add this line
-    header.style.width = '95%'; // Changed to 95%
-    header.style.height = '40px'; // Add this line
-    header.style.position = 'absolute'; // Add this line
-    header.style.left = '2.5%'; // Adjusted to center the header
-    header.style.top = '2.5%'; // Adjusted to center the header
-    header.style.backgroundColor = '#fff'; // Add this line
-    header.style.borderRadius = '10px 10px 0 0'; // Add this line
-    header.appendChild(closeButton); // Add this line
-    modal.appendChild(header); // Add this line
+    var header = document.createElement('div'); 
+    header.style.width = '95%'; 
+    header.style.height = '40px'; 
+    header.style.position = 'absolute'; 
+    header.style.left = '2.5%'; 
+    header.style.top = '2.5%'; 
+    header.style.backgroundColor = '#fff'; 
+    header.style.borderRadius = '10px 10px 0 0'; 
+    header.appendChild(closeButton); 
+    modal.appendChild(header); 
     modal.appendChild(iframe);
     document.body.appendChild(modal);
     var newTabButton = document.createElement('button');
@@ -209,8 +250,8 @@ function main() {
     newTabButton.addEventListener('click', function () {
       window.open(link, '_blank');
     });
-  
-    header.appendChild(newTabButton); // Add this line
+
+    header.appendChild(newTabButton); 
   }
 
   document.body.addEventListener('click', function (event) {
@@ -223,7 +264,7 @@ function main() {
       openLinkInModal(target.href);
     }
   });
-  
+
 
   replaceButtons();
 
@@ -237,16 +278,16 @@ function main() {
 
   observer.observe(document.body, { childList: true, subtree: true });
 
-    // Add CSS to the page
-    setTimeout(function() {
-      var link = document.createElement('link');
-      link.id = 'myExtensionStyles';
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = chrome.extension.getURL('styles.css');
-      (document.head || document.documentElement).appendChild(link);
-    }, 1500); // delay of 2 seconds
-  }
+  // Add CSS to the page
+  setTimeout(function () {
+    var link = document.createElement('link');
+    link.id = 'myExtensionStyles';
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = chrome.extension.getURL('styles.css');
+    (document.head || document.documentElement).appendChild(link);
+  }, 1000); 
+}
 
 function removeChanges() {
   // Remove CSS from the page
@@ -256,13 +297,13 @@ function removeChanges() {
   }
 }
 
-chrome.storage.sync.get('enabled', function(data) {
-  if (data.enabled !== false) { // Default to enabled if not set
+chrome.storage.sync.get('enabled', function (data) {
+  if (data.enabled !== false) { 
     main();
   }
 });
 
-chrome.storage.onChanged.addListener(function(changes, namespace) {
+chrome.storage.onChanged.addListener(function (changes, namespace) {
   if (changes.enabled) {
     window.location.reload(true);
   }

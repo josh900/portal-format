@@ -1,0 +1,23 @@
+:root {
+    --leftSidebarWidth:0px !important;
+  }
+  
+  #ak-side-navigation {
+    display: none !important;
+  }
+
+  #ak-jira-navigation {
+display:none !important;
+height:0px !important;
+
+  }
+
+  :root {
+    --topNavigationHeight: 0px !important;
+    --jwm-wrapper-height: 0px !important;
+}
+
+#ak-project-view-navigation {
+    display:none !important;
+
+}
