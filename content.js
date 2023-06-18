@@ -245,7 +245,7 @@ function main() {
       link.type = 'text/css';
       link.href = chrome.extension.getURL('styles.css');
       (document.head || document.documentElement).appendChild(link);
-    }, 1000); // delay of 2 seconds
+    }, 1500); // delay of 2 seconds
   }
 
 function removeChanges() {

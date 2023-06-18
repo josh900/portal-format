@@ -74,22 +74,18 @@ div[data-test-id="search-dialog-input"] {
     display: none !important;
   }
 
-/* Hide Jira sidebar 
 ._kqswh2mm, ._1pbyg9ti, ._14c1glyw {
     display: none !important;
 }
 
-/* Hide Jira sidebar 
 .css-1cqfw1x {
     display: none !important;
 }
 
-/* Hide Jira sidebar 
 ._1pbyg9ti {
     display: none !important;
 }
 
-/* Hide Jira sidebar 
 ._14c1glyw {
     display: none !important;
 }
@@ -106,7 +102,6 @@ div[data-ds--page-layout--slot="left-sidebar"] {
     display: none !important;
 }
 
-/* Hide Jira left sidebar 
 #jira-frontend, .ghx-navigation {
     margin-left: 0 
 }
@@ -115,7 +110,7 @@ div[data-ds--page-layout--slot="left-sidebar"] {
     --leftSidebarWidth:0px !important;
 }
 
-*/
+
 
 div[data-testid="title-wrapper"] {
     visibility:hidden;
