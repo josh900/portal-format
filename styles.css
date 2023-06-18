@@ -1,0 +1,127 @@
+html {
+    --topNavigationHeight: 0px !important;
+}
+
+#ap-de\\.communardo\\.confluence\\.plugins\\.subspace__subspace-navigation-view-panel {
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    width: 100% !important;
+}
+
+#ap-de.communardo.confluence.plugins.subspace__subspace-navigation-view-panel {
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    width: 100% !important;
+}
+
+div[data-test-id="with-sticky-header"] {
+    display: none !important;
+}
+
+div[data-test-id="app-navigation-search"] {
+    z-index: 999999999999999999 !important;
+}
+
+div[data-test-id="search-dialog-input"] {
+    z-index: 999999999999999999 !important;
+}
+
+#communardo-subspace-navigation-bar {
+    display: none !important;
+}
+
+
+#embedded-de.communardo.confluence.plugins.subspace__subspace-navigation-view-panel {
+    display: none !important;
+}
+
+#de.communardo.confluence.plugins.subspace__subspace-navigation-view-panel__30fc9cb0 {
+    display: none !important;
+}
+
+.wrapper-space-home-page {
+    margin-top: 80px !important;
+}
+
+.css-pddbfj {
+    z-index: 999999999999999999 !important;
+}
+
+.em6wsuj6 {
+    z-index: 999999999999999999 !important;
+}
+
+.css-vtikxo {
+    visibility: hidden !important;
+}
+
+.css-1nc30jc {
+    display: none !important;
+}
+
+.ak-renderer-extension {
+    margin-top: 0px !important;
+}
+
+#wwdc-button {
+    display: none;
+}
+
+/* Hide left sidebar in Confluence Cloud */
+#AkSideNavigation {
+    display: none !important;
+  }
+
+/* Hide Jira sidebar 
+._kqswh2mm, ._1pbyg9ti, ._14c1glyw {
+    display: none !important;
+}
+
+/* Hide Jira sidebar 
+.css-1cqfw1x {
+    display: none !important;
+}
+
+/* Hide Jira sidebar 
+._1pbyg9ti {
+    display: none !important;
+}
+
+/* Hide Jira sidebar 
+._14c1glyw {
+    display: none !important;
+}
+
+#ak-side-navigation {
+    display: none !important;
+}
+
+div[data-test-id="ContextualNavigation"] {
+    display: none !important;
+}
+
+div[data-ds--page-layout--slot="left-sidebar"] {
+    display: none !important;
+}
+
+/* Hide Jira left sidebar 
+#jira-frontend, .ghx-navigation {
+    margin-left: 0 
+}
+
+:root {
+    --leftSidebarWidth:0px !important;
+}
+
+*/
+
+div[data-testid="title-wrapper"] {
+    visibility:hidden;
+    height:90px;
+}
+
+#ak-side-navigation {
+    display: none !important;
+}
