@@ -25,7 +25,7 @@ function main() {
 
   var headers = {
     'My Portal': 'https://skoop-jira.atlassian.net/wiki/spaces/MP/overview?mode=global',
-    'Triage': 'https://skoop-jira.atlassian.net/wiki/spaces/PCO/overview?mode=global',
+    'Requests': 'https://skoop-jira.atlassian.net/wiki/spaces/PREQ/overview?mode=global',
     'Clients': 'https://skoop-jira.atlassian.net/wiki/spaces/PCO/overview?mode=global',
     'Wiki': 'https://skoop-jira.atlassian.net/wiki/spaces/WIKI/overview?mode=global',
     'General': 'https://skoop-jira.atlassian.net/wiki/spaces/PGEN/overview?mode=global',
