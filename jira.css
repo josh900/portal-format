@@ -13,11 +13,18 @@ height:0px !important;
   }
 
   :root {
-    --topNavigationHeight: 0px !important;
-    --jwm-wrapper-height: 0px !important;
+   --topNavigationHeight: 0px !important;
+    //--jwm-wrapper-height: 0px !important;
+    //--jwm-wrapper-padding: 0px;
 }
 
 #ak-project-view-navigation {
     display:none !important;
 
 }
+
+._154i14em {
+  top:10px !important;
+ 
+}
+

@@ -10,8 +10,23 @@
     {
       "matches": ["https://skoop-jira.atlassian.net/wiki/*"],
       "js": ["content.js"],
-      "run_at": "document_end"
+      "run_at": "document_end",
+      "all_frames": true
+
+    },
+    {
+      "matches": ["https://skoop-jira.atlassian.net/*"],
+      "js": ["stylesall.js"],
+      "run_at": "document_end",
+      "all_frames": true
+
+    },
+    {
+      "matches": ["https://skoop-jira.atlassian.net/*"],
+      "js": ["iframeStyles.js"],
+      "run_at": "document_end",
+      "all_frames": true 
     }
   ],
-  "web_accessible_resources": ["styles.css", "jira.css"]
+  "web_accessible_resources": ["styles.css", "jira.css", "stylesall.css", "stylesall.js"]
 }

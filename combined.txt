@@ -1,10 +1,31 @@
 background.js:
 ```
-
+chrome.webRequest.onHeadersReceived.addListener(
+    function(details) {
+      for (var i = 0; i < details.responseHeaders.length; ++i) {
+        if (details.responseHeaders[i].name.toLowerCase() == 'access-control-allow-origin') {
+          details.responseHeaders[i].value = '*';
+          break;
+        }
+      }
+      return {responseHeaders: details.responseHeaders};
+    },
+    {urls: ["<all_urls>"]},
+    ["blocking", "responseHeaders"]
+  );
 ```
 
 content.js:
 ```
+// Fetch the CSS file once and store it
+var css;
+fetch(chrome.runtime.getURL('jira.css'))
+  .then(response => response.text())
+  .then(text => {
+    css = text;
+  });
+
+
 function main() {
 
   // Create the navigation bar
@@ -24,7 +45,7 @@ function main() {
 
   var headers = {
     'My Portal': 'https://skoop-jira.atlassian.net/wiki/spaces/MP/overview?mode=global',
-    'Triage': 'https://skoop-jira.atlassian.net/wiki/spaces/PCO/overview?mode=global',
+    'Requests': 'https://skoop-jira.atlassian.net/wiki/spaces/PREQ/overview?mode=global',
     'Clients': 'https://skoop-jira.atlassian.net/wiki/spaces/PCO/overview?mode=global',
     'Wiki': 'https://skoop-jira.atlassian.net/wiki/spaces/WIKI/overview?mode=global',
     'General': 'https://skoop-jira.atlassian.net/wiki/spaces/PGEN/overview?mode=global',
@@ -34,7 +55,7 @@ function main() {
     'Products': 'https://skoop-jira.atlassian.net/wiki/spaces/PPO/overview?mode=global'
   };
 
-  
+
   // Create header links
   for (let header in headers) {
     var a = document.createElement('a');
@@ -42,12 +63,12 @@ function main() {
     a.href = headers[header];
     a.style.cursor = 'pointer';
     a.style.color = 'white';
-    a.className = 'header-link'; // Add this line
+    a.className = 'header-link'; 
     navBar.appendChild(a);
   }
 
   document.body.prepend(navBar);
-  
+
 
   function replaceButtons() {
     var buttons = document.querySelectorAll('div.ap-container.conf-macro.output-block');
@@ -76,13 +97,30 @@ function main() {
         modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
         var iframe = document.createElement('iframe');
         iframe.src = originalUrl;
-        iframe.style.width = '70%'; // Changed to 70%
-        iframe.style.height = 'calc(70% - 30px)'; // Changed to 70%
+        iframe.style.width = '70%'; 
+        iframe.style.height = 'calc(70% - 30px)'; 
         iframe.style.border = 'none';
         iframe.style.position = 'absolute';
-        iframe.style.left = '15%'; // Adjusted to center the iframe
-        iframe.style.top = 'calc(15% + 30px)'; // Adjusted to center the iframe
-        iframe.style.borderRadius = '0 0 10px 10px'; // Add this line
+        iframe.style.left = '15%'; 
+        iframe.style.top = 'calc(15% + 30px)'; 
+        iframe.style.borderRadius = '0 0 10px 10px';       
+ 
+        
+        setTimeout(function() {
+          var style = document.createElement('style');
+          style.textContent = css;
+          iframe.contentDocument.head.appendChild(style);
+        }, 1500); // 1 second delay
+
+        iframe.addEventListener('load', function () {
+          setTimeout(function() {
+            var style = document.createElement('style');
+            style.textContent = css;
+            iframe.contentDocument.head.appendChild(style);
+          }, 100); 
+        });
+
+
         var closeButton = document.createElement('button');
         closeButton.textContent = 'X';
         closeButton.style.position = 'absolute';
@@ -100,16 +138,16 @@ function main() {
         closeButton.addEventListener('click', function () {
           document.body.removeChild(modal);
         });
-        var header = document.createElement('div'); // Add this line
-        header.style.width = '70%'; // Changed to 70%
-        header.style.height = '40px'; // Add this line
-        header.style.position = 'absolute'; // Add this line
-        header.style.left = '15%'; // Adjusted to center the header
-        header.style.top = '15%'; // Adjusted to center the header
-        header.style.backgroundColor = '#fff'; // Add this line
-        header.style.borderRadius = '10px 10px 0 0'; // Add this line
-        header.appendChild(closeButton); // Add this line
-        modal.appendChild(header); // Add this line
+        var header = document.createElement('div'); 
+        header.style.width = '70%'; 
+        header.style.height = '40px'; 
+        header.style.position = 'absolute'; 
+        header.style.left = '15%'; 
+        header.style.top = '15%'; 
+        header.style.backgroundColor = '#fff'; 
+        header.style.borderRadius = '10px 10px 0 0'; 
+        header.appendChild(closeButton); 
+        modal.appendChild(header); 
         modal.appendChild(iframe);
         document.body.appendChild(modal);
         function closeModal() {
@@ -120,7 +158,7 @@ function main() {
           setTimeout(function () {
             document.body.removeChild(modal);
             window.location.reload();
-          }, 1000);
+          }, 2000);
         }
         iframe.addEventListener('load', function () {
           var closeButton = iframe.contentDocument.querySelector('#issue-create-submit');
@@ -128,6 +166,25 @@ function main() {
             closeButton.addEventListener('click', closeModal);
           }
         });
+        var newTabButton = document.createElement('button');
+        newTabButton.textContent = 'Open in new tab';
+        newTabButton.style.position = 'absolute';
+        newTabButton.style.right = 'calc(0% + 40px)';
+        newTabButton.style.top = 'calc(0% + 5px)';
+        newTabButton.style.width = '100px';
+        newTabButton.style.height = '30px';
+        newTabButton.style.zIndex = '10001';
+        newTabButton.style.cursor = 'pointer';
+        newTabButton.style.borderRadius = '3px';
+        newTabButton.style.padding = '2px 5px';
+        newTabButton.style.border = 'none';
+        newTabButton.style.fontSize = '12px';
+        newTabButton.style.backgroundColor = 'lightgrey';
+        newTabButton.addEventListener('click', function () {
+          window.open(originalUrl, '_blank');
+        });
+
+        header.appendChild(newTabButton); 
       });
       button.parentNode.replaceChild(newButton, button);
     });
@@ -144,13 +201,30 @@ function main() {
     modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
     var iframe = document.createElement('iframe');
     iframe.src = link;
-    iframe.style.width = '95%'; // Changed to 95%
-    iframe.style.height = 'calc(95% - 30px)'; // Changed to 95%
+    iframe.style.width = '95%'; 
+    iframe.style.height = 'calc(95% - 30px)'; 
     iframe.style.border = 'none';
     iframe.style.position = 'absolute';
-    iframe.style.left = '2.5%'; // Adjusted to center the iframe
-    iframe.style.top = 'calc(2.5% + 30px)'; // Adjusted to center the iframe
-    iframe.style.borderRadius = '0 0 10px 10px'; // Add this line
+    iframe.style.left = '2.5%'; 
+    iframe.style.top = 'calc(2.5% + 30px)'; 
+    iframe.style.borderRadius = '0 0 10px 10px'; 
+   
+    
+    
+    setTimeout(function() {
+      var style = document.createElement('style');
+      style.textContent = css;
+      iframe.contentDocument.head.appendChild(style);
+    }, 1500); // 1 second delay
+
+    iframe.addEventListener('load', function () {
+      setTimeout(function() {
+        var style = document.createElement('style');
+        style.textContent = css;
+        iframe.contentDocument.head.appendChild(style);
+      }, 100); 
+    });
+
     var closeButton = document.createElement('button');
     closeButton.textContent = 'X';
     closeButton.style.position = 'absolute';
@@ -168,23 +242,42 @@ function main() {
     closeButton.addEventListener('click', function () {
       document.body.removeChild(modal);
     });
-    var header = document.createElement('div'); // Add this line
-    header.style.width = '95%'; // Changed to 95%
-    header.style.height = '40px'; // Add this line
-    header.style.position = 'absolute'; // Add this line
-    header.style.left = '2.5%'; // Adjusted to center the header
-    header.style.top = '2.5%'; // Adjusted to center the header
-    header.style.backgroundColor = '#fff'; // Add this line
-    header.style.borderRadius = '10px 10px 0 0'; // Add this line
-    header.appendChild(closeButton); // Add this line
-    modal.appendChild(header); // Add this line
+    var header = document.createElement('div'); 
+    header.style.width = '95%'; 
+    header.style.height = '40px'; 
+    header.style.position = 'absolute'; 
+    header.style.left = '2.5%'; 
+    header.style.top = '2.5%'; 
+    header.style.backgroundColor = '#fff'; 
+    header.style.borderRadius = '10px 10px 0 0'; 
+    header.appendChild(closeButton); 
+    modal.appendChild(header); 
     modal.appendChild(iframe);
     document.body.appendChild(modal);
+    var newTabButton = document.createElement('button');
+    newTabButton.textContent = 'Open in new tab';
+    newTabButton.style.position = 'absolute';
+    newTabButton.style.right = 'calc(0% + 40px)';
+    newTabButton.style.top = 'calc(0% + 5px)';
+    newTabButton.style.width = '100px';
+    newTabButton.style.height = '30px';
+    newTabButton.style.zIndex = '10001';
+    newTabButton.style.cursor = 'pointer';
+    newTabButton.style.borderRadius = '3px';
+    newTabButton.style.padding = '2px 5px';
+    newTabButton.style.border = 'none';
+    newTabButton.style.fontSize = '12px';
+    newTabButton.style.backgroundColor = 'lightgrey';
+    newTabButton.addEventListener('click', function () {
+      window.open(link, '_blank');
+    });
+
+    header.appendChild(newTabButton); 
   }
 
   document.body.addEventListener('click', function (event) {
     var target = event.target;
-    if (target.tagName === 'IMG' && target.parentNode.tagName === 'A' && !target.parentNode.classList.contains('header-link')) {
+    if (target.tagName === 'SPAN' && target.parentNode.tagName === 'A' && !target.parentNode.classList.contains('header-link')) {
       event.preventDefault();
       openLinkInModal(target.parentNode.href);
     } else if (target.tagName === 'A' && !target.classList.contains('header-link')) {
@@ -192,7 +285,7 @@ function main() {
       openLinkInModal(target.href);
     }
   });
-  
+
 
   replaceButtons();
 
@@ -206,16 +299,16 @@ function main() {
 
   observer.observe(document.body, { childList: true, subtree: true });
 
-    // Add CSS to the page
-    setTimeout(function() {
-      var link = document.createElement('link');
-      link.id = 'myExtensionStyles';
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = chrome.extension.getURL('styles.css');
-      (document.head || document.documentElement).appendChild(link);
-    }, 1000); // delay of 2 seconds
-  }
+  // Add CSS to the page
+  setTimeout(function () {
+    var link = document.createElement('link');
+    link.id = 'myExtensionStyles';
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = chrome.extension.getURL('styles.css');
+    (document.head || document.documentElement).appendChild(link);
+  }, 1000); 
+}
 
 function removeChanges() {
   // Remove CSS from the page
@@ -225,17 +318,101 @@ function removeChanges() {
   }
 }
 
-chrome.storage.sync.get('enabled', function(data) {
-  if (data.enabled !== false) { // Default to enabled if not set
+chrome.storage.sync.get('enabled', function (data) {
+  if (data.enabled !== false) { 
     main();
   }
 });
 
-chrome.storage.onChanged.addListener(function(changes, namespace) {
+chrome.storage.onChanged.addListener(function (changes, namespace) {
   if (changes.enabled) {
     window.location.reload(true);
   }
 });
+
+
+
+```
+
+iframestyles.js:
+```
+var style = document.createElement('style');
+style.textContent = `
+.ghx-column {
+  //background-color: white !important;
+ // border-style: solid !important;
+// border-width: 0px 1px 0px 0px !important;
+//  border-color: lightgrey !important;
+ // background:white !important;
+ // padding-left: 0px !important;
+//  padding-right: 10px !important;
+//border-radius: 10px 10px 0px 0px !important;
+}
+
+.ghx-column-header-flex-1 {
+    text-align: center;
+    padding-top: 6px;
+}
+
+.ghx-column-headers .ghx-column {
+    border-radius: 5px 5px 0px 0px !important;
+}
+
+.ghx-columns .ghx-column {
+    border-radius: 0px 0px 5px 5px !important;
+}
+
+.ghx-pool {
+    margin-top:-10px !important;
+}
+
+.ghx-qty {
+    font-color: lightgrey;
+}
+
+`;
+(document.head || document.documentElement).appendChild(style);
+
+
+```
+
+jira.css:
+```
+:root {
+    --leftSidebarWidth:0px !important;
+  }
+  
+  #ak-side-navigation {
+    display: none !important;
+  }
+
+  #ak-jira-navigation {
+display:none !important;
+height:0px !important;
+
+  }
+
+  :root {
+    --topNavigationHeight: 0px !important;
+    --jwm-wrapper-height: 0px !important;
+}
+
+#ak-project-view-navigation {
+    display:none !important;
+
+}
+```
+
+jira.js:
+```
+// Add CSS to the page after a delay of 1 second
+setTimeout(function() {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = chrome.extension.getURL('jira.css');
+    (document.head || document.documentElement).appendChild(link);
+  }, 100);
 ```
 
 manifest.json:
@@ -252,10 +429,24 @@ manifest.json:
     {
       "matches": ["https://skoop-jira.atlassian.net/wiki/*"],
       "js": ["content.js"],
-      "run_at": "document_end"
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://skoop-jira.atlassian.net/*"],
+      "js": ["stylesall.js"],
+      "run_at": "document_end",
+      "all_frames": true
+
+    },
+    {
+      "matches": ["https://skoop-jira.atlassian.net/*"],
+      "js": ["iframeStyles.js"],
+      "run_at": "document_end",
+      "all_frames": true 
     }
   ],
-  "web_accessible_resources": ["styles.css"]
+  "web_accessible_resources": ["styles.css", "jira.css", "stylesall.css", "stylesall.js"]
 }
 ```
 
@@ -383,9 +574,6 @@ div[data-test-id="search-dialog-input"] {
     display: none !important;
 }
 
-#ak-side-navigation {
-    display: none !important;
-}
 
 div[data-test-id="ContextualNavigation"] {
     display: none !important;
@@ -404,11 +592,9 @@ div[data-ds--page-layout--slot="left-sidebar"] {
     --leftSidebarWidth:0px !important;
 }
 
-*/
 
-div[data-testid="title-wrapper"] {
-    visibility:hidden;
-    height:90px;
+:root {
+    --leftSidebarWidth:0px !important;
 }
 
 
@@ -416,6 +602,52 @@ div[data-testid="title-wrapper"] {
     display: none !important;
 }
 
+*/
+
+
+
+
+div[data-testid="title-wrapper"] {
+    visibility:hidden;
+    height:90px;
+}
+
+#ak-side-navigation {
+    display: none !important;
+}
+
+
+.ak-renderer-extension-overflow-container {
+    overflow-y: scroll !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+
+.ak-renderer-extension-overflow-container::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+.skpmacro {
+    margin-top:14px !important;
+}
+
+```
+
+stylesall.css:
+```
+
+```
+
+stylesall.js:
+```
+setTimeout(function() {
+    var collapseButton = document.querySelector('button[data-testid="ContextualNavigation-resize-button"]');
+    if (collapseButton && collapseButton.getAttribute('aria-expanded') === 'true') {
+        collapseButton.click();
+    }
+}, 500);
 ```
 
 Above is my chrome extension.

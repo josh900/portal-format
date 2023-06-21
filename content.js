@@ -6,8 +6,111 @@ fetch(chrome.runtime.getURL('jira.css'))
     css = text;
   });
 
-function main() {
 
+  function openLinkInModal(link) {
+    var modal = window.top.document.createElement('div');
+    modal.style.position = 'fixed';
+    modal.style.zIndex = '10000';
+    modal.style.left = '0';
+    modal.style.top = '0';
+    modal.style.width = '100%';
+    modal.style.height = '100%';
+    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    var iframe = window.top.document.createElement('iframe');
+    iframe.src = link;
+    iframe.style.width = '95%'; 
+    iframe.style.height = 'calc(95% - 30px)'; 
+    iframe.style.border = 'none';
+    iframe.style.position = 'absolute';
+    iframe.style.left = '2.5%'; 
+    iframe.style.top = 'calc(2.5% + 30px)'; 
+    iframe.style.borderRadius = '0 0 10px 10px'; 
+   
+    
+    
+    setTimeout(function() {
+      var style = document.createElement('style');
+      style.textContent = css;
+      iframe.contentDocument.head.appendChild(style);
+    }, 1500); // 1 second delay
+
+    iframe.addEventListener('load', function () {
+      setTimeout(function() {
+        var style = document.createElement('style');
+        style.textContent = css;
+        iframe.contentDocument.head.appendChild(style);
+      }, 100); 
+    });
+
+    var closeButton = window.top.document.createElement('button');
+    closeButton.textContent = 'X';
+    closeButton.style.position = 'absolute';
+    closeButton.style.right = 'calc(0% + 5px)';
+    closeButton.style.top = 'calc(0% + 5px)';
+    closeButton.style.width = '30px';
+    closeButton.style.height = '30px';
+    closeButton.style.zIndex = '10001';
+    closeButton.style.cursor = 'pointer';
+    closeButton.style.borderRadius = '3px';
+    closeButton.style.padding = '2px 5px';
+    closeButton.style.border = 'none';
+    closeButton.style.fontSize = '12px';
+    closeButton.style.backgroundColor = 'lightgrey';
+    closeButton.addEventListener('click', function () {
+      window.top.document.body.removeChild(modal);
+    });
+    var header = window.top.document.createElement('div'); 
+    header.style.width = '95%'; 
+    header.style.height = '40px'; 
+    header.style.position = 'absolute'; 
+    header.style.left = '2.5%'; 
+    header.style.top = '2.5%'; 
+    header.style.zIndex = '999'
+    header.style.backgroundColor = '#fff'; 
+    header.style.borderRadius = '10px 10px 0 0'; 
+    header.appendChild(closeButton); 
+    modal.appendChild(header); 
+    modal.appendChild(iframe);
+    window.top.document.body.appendChild(modal);
+    var newTabButton = window.top.document.createElement('button');
+    newTabButton.textContent = 'Open in new tab';
+    newTabButton.style.position = 'absolute';
+    newTabButton.style.right = 'calc(0% + 40px)';
+    newTabButton.style.top = 'calc(0% + 5px)';
+    newTabButton.style.width = '100px';
+    newTabButton.style.height = '30px';
+    newTabButton.style.zIndex = '10001';
+    newTabButton.style.cursor = 'pointer';
+    newTabButton.style.borderRadius = '3px';
+    newTabButton.style.padding = '2px 5px';
+    newTabButton.style.border = 'none';
+    newTabButton.style.fontSize = '12px';
+    newTabButton.style.backgroundColor = 'lightgrey';
+    newTabButton.addEventListener('click', function () {
+      window.open(link, '_blank');
+    });
+
+    header.appendChild(newTabButton); 
+  }
+
+  document.body.addEventListener('click', function (event) {
+    var target = event.target;
+    if (target.tagName === 'SPAN' && target.parentNode.tagName === 'A' && !target.parentNode.classList.contains('header-link')) {
+      event.preventDefault();
+      openLinkInModal(target.parentNode.href);
+    } else if (target.tagName === 'A' && !target.classList.contains('header-link')) {
+      event.preventDefault();
+      openLinkInModal(target.href);
+    }
+  });
+
+
+
+function main() {
+ // If the current window is not the top window, return immediately
+ if (window !== window.top) {
+  return;
+}
   // Create the navigation bar
   var navBar = document.createElement('div');
   navBar.style.height = '56px';
@@ -120,10 +223,11 @@ function main() {
         });
         var header = document.createElement('div'); 
         header.style.width = '70%'; 
-        header.style.height = '40px'; 
+        header.style.height = '45px'; 
         header.style.position = 'absolute'; 
         header.style.left = '15%'; 
-        header.style.top = '15%'; 
+        header.style.top = '15%';
+        header.style.zIndex = '999'
         header.style.backgroundColor = '#fff'; 
         header.style.borderRadius = '10px 10px 0 0'; 
         header.appendChild(closeButton); 
@@ -170,101 +274,7 @@ function main() {
     });
   }
 
-  function openLinkInModal(link) {
-    var modal = document.createElement('div');
-    modal.style.position = 'fixed';
-    modal.style.zIndex = '10000';
-    modal.style.left = '0';
-    modal.style.top = '0';
-    modal.style.width = '100%';
-    modal.style.height = '100%';
-    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-    var iframe = document.createElement('iframe');
-    iframe.src = link;
-    iframe.style.width = '95%'; 
-    iframe.style.height = 'calc(95% - 30px)'; 
-    iframe.style.border = 'none';
-    iframe.style.position = 'absolute';
-    iframe.style.left = '2.5%'; 
-    iframe.style.top = 'calc(2.5% + 30px)'; 
-    iframe.style.borderRadius = '0 0 10px 10px'; 
-   
-    
-    setTimeout(function() {
-      var style = document.createElement('style');
-      style.textContent = css;
-      iframe.contentDocument.head.appendChild(style);
-    }, 1500); // 1 second delay
-
-    iframe.addEventListener('load', function () {
-      setTimeout(function() {
-        var style = document.createElement('style');
-        style.textContent = css;
-        iframe.contentDocument.head.appendChild(style);
-      }, 100); 
-    });
-
-    var closeButton = document.createElement('button');
-    closeButton.textContent = 'X';
-    closeButton.style.position = 'absolute';
-    closeButton.style.right = 'calc(0% + 5px)';
-    closeButton.style.top = 'calc(0% + 5px)';
-    closeButton.style.width = '30px';
-    closeButton.style.height = '30px';
-    closeButton.style.zIndex = '10001';
-    closeButton.style.cursor = 'pointer';
-    closeButton.style.borderRadius = '3px';
-    closeButton.style.padding = '2px 5px';
-    closeButton.style.border = 'none';
-    closeButton.style.fontSize = '12px';
-    closeButton.style.backgroundColor = 'lightgrey';
-    closeButton.addEventListener('click', function () {
-      document.body.removeChild(modal);
-    });
-    var header = document.createElement('div'); 
-    header.style.width = '95%'; 
-    header.style.height = '40px'; 
-    header.style.position = 'absolute'; 
-    header.style.left = '2.5%'; 
-    header.style.top = '2.5%'; 
-    header.style.backgroundColor = '#fff'; 
-    header.style.borderRadius = '10px 10px 0 0'; 
-    header.appendChild(closeButton); 
-    modal.appendChild(header); 
-    modal.appendChild(iframe);
-    document.body.appendChild(modal);
-    var newTabButton = document.createElement('button');
-    newTabButton.textContent = 'Open in new tab';
-    newTabButton.style.position = 'absolute';
-    newTabButton.style.right = 'calc(0% + 40px)';
-    newTabButton.style.top = 'calc(0% + 5px)';
-    newTabButton.style.width = '100px';
-    newTabButton.style.height = '30px';
-    newTabButton.style.zIndex = '10001';
-    newTabButton.style.cursor = 'pointer';
-    newTabButton.style.borderRadius = '3px';
-    newTabButton.style.padding = '2px 5px';
-    newTabButton.style.border = 'none';
-    newTabButton.style.fontSize = '12px';
-    newTabButton.style.backgroundColor = 'lightgrey';
-    newTabButton.addEventListener('click', function () {
-      window.open(link, '_blank');
-    });
-
-    header.appendChild(newTabButton); 
-  }
-
-  document.body.addEventListener('click', function (event) {
-    var target = event.target;
-    if (target.tagName === 'IMG' && target.parentNode.tagName === 'A' && !target.parentNode.classList.contains('header-link')) {
-      event.preventDefault();
-      openLinkInModal(target.parentNode.href);
-    } else if (target.tagName === 'A' && !target.classList.contains('header-link')) {
-      event.preventDefault();
-      openLinkInModal(target.href);
-    }
-  });
-
+  
 
   replaceButtons();
 
@@ -308,3 +318,5 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
     window.location.reload(true);
   }
 });
+
+
