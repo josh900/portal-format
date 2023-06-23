@@ -4,3 +4,5 @@ setTimeout(function() {
         collapseButton.click();
     }
 }, 500);
+
+

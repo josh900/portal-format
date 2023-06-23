@@ -159,3 +159,45 @@ div[data-testid="title-wrapper"] {
     display: none !important;
 }
 
+
+div[title="Live Search Macro"] {
+  height:35px !important;
+}
+
+.search-macro-button {
+    display: none;
+}
+
+.TOCFixed {
+    position: fixed !important;
+    top: 100px !important;
+    left: 25px !important;
+    height: 100vh !important;
+    width: 30%; /* Adjust this value based on your layout */
+    overflow-y: auto !important;
+}
+
+/* Matches elements where data-outline is a single number (e.g., "1", "2", etc.) */
+.TOCFixed [data-outline]:not([data-outline*="."]) span span {
+    font-size: 1.1em !important;
+    font-weight: bold !important;
+    color: #34454f !important;
+  }
+  
+  /* Matches elements where data-outline contains a "." (e.g., "1.1", "2.1", etc.) */
+  .TOCFixed [data-outline*="."] span span {
+    font-size: 1em !important;
+    font-weight: bold !important;
+    color: #515b62 !important;
+  }
+
+
+  @media (max-width: 1024px) {
+    .TOCFixed {
+      display: none !important;
+    }
+  }
+
+
+
+  

@@ -6,3 +6,7 @@ setTimeout(function() {
     link.href = chrome.extension.getURL('jira.css');
     (document.head || document.documentElement).appendChild(link);
   }, 100);
+
+
+
+  
