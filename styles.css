@@ -113,8 +113,8 @@ div[data-ds--page-layout--slot="left-sidebar"] {
 
 
 div[data-testid="title-wrapper"] {
-    visibility:hidden;
-    height:90px;
+    visibility:hidden !important;
+    height:90px !important;
 }
 
 #ak-side-navigation {
@@ -201,3 +201,9 @@ div[title="Live Search Macro"] {
 
 
   
+
+  
+div[data-testid="ak-editor-main-toolbar"] {
+    z-index: 2500 !important;
+      }
+    

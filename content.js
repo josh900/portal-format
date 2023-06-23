@@ -8,6 +8,7 @@ fetch(chrome.runtime.getURL('jira.css'))
 
 
 function openLinkInModal(link) {
+  
   var modal = window.top.document.createElement('div');
   modal.style.position = 'fixed';
   modal.style.zIndex = '10000';
@@ -95,15 +96,19 @@ function openLinkInModal(link) {
 
 document.body.addEventListener('click', function (event) {
   var target = event.target;
+  var link;
   if (target.tagName === 'SPAN' && target.parentNode.tagName === 'A' && !target.parentNode.classList.contains('header-link')) {
-    event.preventDefault();
-    openLinkInModal(target.parentNode.href);
+    link = target.parentNode.href;
   } else if (target.tagName === 'A' && !target.classList.contains('header-link')) {
+    link = target.href;
+  }
+
+  var url = new URL(link);
+  if (url.hostname === 'skoop-jira.atlassian.net') {
     event.preventDefault();
-    openLinkInModal(target.href);
+    openLinkInModal(link);
   }
 });
-
 
 
 function main() {
