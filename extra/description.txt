@@ -764,5 +764,100 @@ setTimeout(function() {
 
 
 ```
+,
 
 Above is my chrome extension.
+
+
+Detailed description of the extension:
+```
+Title: Skp-Portal-Format Chrome Extension
+
+Introduction:
+The Skp-Portal-Format Chrome Extension is designed to enhance the user experience on the Skoop-Jira platform by modifying the appearance and functionality of the website. This extension adds a custom navigation bar, modifies the appearance of certain elements, and provides additional functionality such as opening links in a modal window.
+
+Main Components:
+1. background.js
+2. content.js
+3. iframestyles.js
+4. jira.css
+5. jira.js
+6. manifest.json
+7. popup.html
+8. popup.js
+9. styles.css
+10. stylesall.css
+11. stylesall.js
+
+1. background.js:
+This file is responsible for modifying the response headers of all web requests to allow cross-origin resource sharing (CORS). It listens for the 'onHeadersReceived' event and updates the 'Access-Control-Allow-Origin' header to '*' (allowing any origin).
+This file modifies the response headers of all web requests to allow cross-origin resource sharing (CORS). It contains the following function:
+
+- chrome.webRequest.onHeadersReceived.addListener(): This function listens for the 'onHeadersReceived' event and updates the 'Access-Control-Allow-Origin' header to '*' (allowing any origin). It loops through the response headers, finds the 'Access-Control-Allow-Origin' header, and sets its value to '*'. This allows the extension to access resources from any origin, which is necessary for some of the functionality provided by the extension, such as loading CSS files and handling click events.
+
+2. content.js:
+This file contains the main logic for the extension, including creating the custom navigation bar, modifying the appearance of certain elements, and handling click events to open links in a modal window. It also fetches the CSS file (jira.css) and applies it to the iframe content.
+This file contains the main logic for the extension. It includes the following functions:
+
+- openLinkInModal(link): This function takes a URL as an argument and creates a modal window with an iframe containing the content of the URL. It also adds a close button and a 'Open in new tab' button to the modal window. When the iframe content is loaded, the function applies the CSS styles from jira.css to the iframe content.
+
+- document.body.addEventListener('click', ...): This event listener is added to the document body and listens for click events. When a click event occurs, it checks if the target element is a link (either an 'A' or 'SPAN' element within an 'A' element) and if the link's hostname is 'skoop-jira.atlassian.net'. If these conditions are met, it prevents the default link behavior and calls the openLinkInModal function with the link's href attribute.
+
+- main(): This function is the main entry point of the extension. It checks if the current window is the top window, and if so, it creates the custom navigation bar, modifies the appearance of certain elements, and replaces the default behavior of search forms with the custom search functionality provided by the extension. It also adds the CSS styles from styles.css to the page.
+
+- replaceButtons(): This function replaces the default buttons on the Skoop-Jira platform with custom buttons that open the associated links in a modal window. It selects all buttons with the class 'ap-container.conf-macro.output-block' and replaces them with new buttons that have an event listener for the 'click' event. When clicked, the new buttons call the openLinkInModal function with the original URL.
+
+- removeChanges(): This function removes the CSS styles added by the extension. It is called when the extension is disabled.
+
+- chrome.storage.sync.get(...): This function retrieves the enabled state of the extension from the Chrome storage. If the enabled state is not false, it calls the main() function.
+
+- chrome.storage.onChanged.addListener(...): This event listener listens for changes in the Chrome storage. When the enabled state changes, it reloads the page to apply or remove the extension's changes.
+
+- document.body.addEventListener('submit', ...): This event listener is added to the document body and listens for submit events. When a submit event occurs, it checks if the target element is a search form and prevents the default form submission behavior. It then calls the openLinkInModal function with the search URL.
+
+3. iframestyles.js:
+This file contains additional styling specific to iframes. It creates a style element containing the CSS rules and appends it to the head of the document.
+This file contains additional styling specific to iframes. It includes the following:
+
+- style: A style element containing the CSS rules for iframes. These rules are applied to elements such as the 'ghx-column', 'ghx-column-header-flex-1', 'ghx-pool', and 'ghx-qty'.
+
+- (document.head || document.documentElement).appendChild(style): This line appends the style element to the head of the document, applying the CSS rules to the iframe content.
+
+4. jira.css:
+This file contains the CSS styles specific to the Skoop-Jira platform. These styles are applied to the main website and iframe content.
+
+5. jira.js:
+This file adds the jira.css file to the page after a delay of 1 second.
+
+This file adds the jira.css file to the page after a delay of 1 second. It includes the following:
+
+- setTimeout(...): This function waits for 1 second and then creates a link element with the href attribute set to the URL of the jira.css file. The link element is then appended to the head of the document, applying the CSS styles to the Skoop-Jira platform.
+
+
+6. manifest.json:
+This file is the manifest for the Chrome extension, containing metadata such as the extension's name, version, permissions, content scripts, and web-accessible resources.
+
+7. popup.html:
+This file contains the HTML structure for the extension's popup, which includes a toggle button to enable or disable the extension.
+
+8. popup.js:
+This file contains the JavaScript logic for the popup, handling the click event on the toggle button and updating the extension's enabled state in the Chrome storage.
+
+9. styles.css:
+This file contains the general CSS styles for the extension, which are applied to both the Skoop-Jira platform and the iframe content.
+
+10. stylesall.css:
+This file is currently empty but can be used to add additional CSS styles if needed.
+
+11. stylesall.js:
+This file contains JavaScript logic to collapse the left sidebar on the Skoop-Jira platform after a delay of 500 milliseconds.
+This file contains JavaScript logic to collapse the left sidebar on the Skoop-Jira platform after a delay of 500 milliseconds. It includes the following:
+
+- setTimeout(...): This function waits for 500 milliseconds and then selects the collapse button on the Skoop-Jira platform using the 'button[data-testid="ContextualNavigation-resize-button"]' selector. If the collapse button is found and its 'aria-expanded' attribute is set to 'true', the function clicks the button to collapse the sidebar.
+
+Conclusion:
+The Skp-Portal-Format Chrome Extension enhances the Skoop-Jira platform by providing a custom navigation bar, modifying the appearance of certain elements, and adding additional functionality such as opening links in a modal window. The extension is comprised of various JavaScript, CSS, and HTML files that work together to achieve the desired user experience.
+```
+
+Please use this description to refine and optimize the chrome extension provided in the begining. The functionality should remain the same, but the code should be more organized. Just return the file name and modifications only.
+Don't worry about adding comments, just focus on things like functions which should be combined or moved to new files for better separation.  For example we should probably move many of the functions within content.js into the jirz.js or styleall.js or a new file for confluence.js to note the modifications to respective places. 

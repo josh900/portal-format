@@ -139,6 +139,7 @@ function main() {
     'General': 'https://skoop-jira.atlassian.net/wiki/spaces/PGEN/overview?mode=global',
     'Tech': 'https://skoop-jira.atlassian.net/wiki/spaces/PTECH/overview?mode=global',
     'Design': 'https://skoop-jira.atlassian.net/wiki/spaces/PDES/overview?mode=global',
+    'Managment': 'https://skoop-jira.atlassian.net/wiki/spaces/PMA/overview?mode=global',
     'Routines': 'https://skoop-jira.atlassian.net/wiki/spaces/PASK/overview?mode=global',
     'Products': 'https://skoop-jira.atlassian.net/wiki/spaces/PPO/overview?mode=global'
   };
