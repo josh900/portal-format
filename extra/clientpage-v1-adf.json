@@ -1,0 +1,562 @@
+{
+    "type": "doc",
+    "content": [
+        {
+            "type": "layoutSection",
+            "content": [
+                {
+                    "type": "layoutColumn",
+                    "attrs": {
+                        "width": 50
+                    },
+                    "content": [
+                        {
+                            "type": "extension",
+                            "attrs": {
+                                "layout": "default",
+                                "extensionType": "com.atlassian.confluence.macro.core",
+                                "extensionKey": "sr-macro-1ae85501-41a2-4eef-9246-30c6b9589775",
+                                "parameters": {
+                                    "macroParams": {
+                                        "p11": {
+                                            "value": "10072"
+                                        },
+                                        "p14": {
+                                            "value": "10030"
+                                        },
+                                        "p13": {
+                                            "value": "164"
+                                        },
+                                        "p3": {
+                                            "value": "Tags in (\"ari:cloud:cmdb::object/d937aba2-2225-4a4b-8131-85d4a73b4830/79\") AND (Departments in (\"ari:cloud:cmdb::object/d937aba2-2225-4a4b-8131-85d4a73b4830/164\") ) AND status not in (Archive) ORDER BY priority desc, created desc"
+                                        },
+                                        "p4": {
+                                            "value": "Triage Links"
+                                        },
+                                        "p7": {
+                                            "value": "true"
+                                        },
+                                        "p9": {
+                                            "value": "12"
+                                        },
+                                        "p10": {
+                                            "value": "79"
+                                        }
+                                    },
+                                    "macroMetadata": {
+                                        "macroId": {
+                                            "value": "9f3b1a994341fa876eb5619aadcb04cc"
+                                        },
+                                        "schemaVersion": {
+                                            "value": "1"
+                                        },
+                                        "placeholder": [
+                                            {
+                                                "type": "icon",
+                                                "data": {
+                                                    "url": "https://hydrogen.sagittarius.connect.product.adaptavist.com/sr-dispatcher/static/scriptrunner-macro-icon.png"
+                                                }
+                                            }
+                                        ],
+                                        "title": "Skoop Ticket Filter - links"
+                                    }
+                                },
+                                "localId": "6f69037b-62e0-4bd6-8e90-1a98cf007e3f"
+                            }
+                        },
+                        {
+                            "type": "extension",
+                            "attrs": {
+                                "layout": "default",
+                                "extensionType": "com.atlassian.confluence.macro.core",
+                                "extensionKey": "sr-macro-1ae85501-41a2-4eef-9246-30c6b9589775",
+                                "parameters": {
+                                    "macroParams": {
+                                        "p11": {
+                                            "value": "10072"
+                                        },
+                                        "p14": {
+                                            "value": "10030"
+                                        },
+                                        "p13": {
+                                            "value": "28"
+                                        },
+                                        "p3": {
+                                            "value": "Tags in (\"ari:cloud:cmdb::object/d937aba2-2225-4a4b-8131-85d4a73b4830/79\") AND Departments in iqlFunction(\"ObjectID IN (\\\"28\\\")\") AND status not in (Archive) ORDER BY priority desc, created desc"
+                                        },
+                                        "p4": {
+                                            "value": "Sales Links"
+                                        },
+                                        "p7": {
+                                            "value": "true"
+                                        },
+                                        "p9": {
+                                            "value": "12"
+                                        },
+                                        "p10": {
+                                            "value": "79"
+                                        }
+                                    },
+                                    "macroMetadata": {
+                                        "macroId": {
+                                            "value": "2ec947b8d12d5b2f7139cdcf9fd822b9"
+                                        },
+                                        "schemaVersion": {
+                                            "value": "1"
+                                        },
+                                        "placeholder": [
+                                            {
+                                                "type": "icon",
+                                                "data": {
+                                                    "url": "https://hydrogen.sagittarius.connect.product.adaptavist.com/sr-dispatcher/static/scriptrunner-macro-icon.png"
+                                                }
+                                            }
+                                        ],
+                                        "title": "Skoop Ticket Filter - links"
+                                    }
+                                },
+                                "localId": "3963d32f-1d69-4933-b3b7-f0971ef09229"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "layoutColumn",
+                    "attrs": {
+                        "width": 50
+                    },
+                    "content": [
+                        {
+                            "type": "extension",
+                            "attrs": {
+                                "layout": "default",
+                                "extensionType": "com.atlassian.confluence.macro.core",
+                                "extensionKey": "sr-macro-1ae85501-41a2-4eef-9246-30c6b9589775",
+                                "parameters": {
+                                    "macroParams": {
+                                        "p11": {
+                                            "value": "10072"
+                                        },
+                                        "p14": {
+                                            "value": "10030"
+                                        },
+                                        "p13": {
+                                            "value": "34"
+                                        },
+                                        "p3": {
+                                            "value": "Tags in (\"ari:cloud:cmdb::object/d937aba2-2225-4a4b-8131-85d4a73b4830/79\") AND (Departments in (\"ari:cloud:cmdb::object/d937aba2-2225-4a4b-8131-85d4a73b4830/34\") OR Departments is EMPTY ) AND status not in (Archive) ORDER BY priority desc, created desc"
+                                        },
+                                        "p4": {
+                                            "value": "General Links"
+                                        },
+                                        "p7": {
+                                            "value": "true"
+                                        },
+                                        "p9": {
+                                            "value": "12"
+                                        },
+                                        "p10": {
+                                            "value": "79"
+                                        }
+                                    },
+                                    "macroMetadata": {
+                                        "macroId": {
+                                            "value": "3502c074b7eed11ccba323f8f87d6da9"
+                                        },
+                                        "schemaVersion": {
+                                            "value": "1"
+                                        },
+                                        "placeholder": [
+                                            {
+                                                "type": "icon",
+                                                "data": {
+                                                    "url": "https://hydrogen.sagittarius.connect.product.adaptavist.com/sr-dispatcher/static/scriptrunner-macro-icon.png"
+                                                }
+                                            }
+                                        ],
+                                        "title": "Skoop Ticket Filter - links"
+                                    }
+                                },
+                                "localId": "ab9e7b67-2354-41f6-9e4a-4210e165310b"
+                            }
+                        },
+                        {
+                            "type": "extension",
+                            "attrs": {
+                                "layout": "default",
+                                "extensionType": "com.atlassian.confluence.macro.core",
+                                "extensionKey": "sr-macro-1ae85501-41a2-4eef-9246-30c6b9589775",
+                                "parameters": {
+                                    "macroParams": {
+                                        "p11": {
+                                            "value": "10072"
+                                        },
+                                        "p14": {
+                                            "value": "10030"
+                                        },
+                                        "p13": {
+                                            "value": "48"
+                                        },
+                                        "p3": {
+                                            "value": "Tags in (\"ari:cloud:cmdb::object/d937aba2-2225-4a4b-8131-85d4a73b4830/79\") AND Departments in (\"ari:cloud:cmdb::object/d937aba2-2225-4a4b-8131-85d4a73b4830/48\") AND reporter in (currentUser()) AND status not in (Archive) ORDER BY priority desc, created desc"
+                                        },
+                                        "p4": {
+                                            "value": "Personal Links"
+                                        },
+                                        "p7": {
+                                            "value": "true"
+                                        },
+                                        "p9": {
+                                            "value": "12"
+                                        },
+                                        "p10": {
+                                            "value": "79"
+                                        }
+                                    },
+                                    "macroMetadata": {
+                                        "macroId": {
+                                            "value": "64bd7cfd0e85b7f59b2fffeb0baf1038"
+                                        },
+                                        "schemaVersion": {
+                                            "value": "1"
+                                        },
+                                        "placeholder": [
+                                            {
+                                                "type": "icon",
+                                                "data": {
+                                                    "url": "https://hydrogen.sagittarius.connect.product.adaptavist.com/sr-dispatcher/static/scriptrunner-macro-icon.png"
+                                                }
+                                            }
+                                        ],
+                                        "title": "Skoop Ticket Filter - links"
+                                    }
+                                },
+                                "localId": "5452d458-6f24-4f74-8192-5fd64cd70871"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "layoutSection",
+            "content": [
+                {
+                    "type": "layoutColumn",
+                    "attrs": {
+                        "width": 66.66
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "marks": [
+                                {
+                                    "type": "alignment",
+                                    "attrs": {
+                                        "align": "end"
+                                    }
+                                }
+                            ],
+                            "content": [
+                                {
+                                    "type": "inlineExtension",
+                                    "attrs": {
+                                        "extensionType": "com.atlassian.confluence.macro.core",
+                                        "extensionKey": "sr-macro-325d00e1-404f-488c-883e-29b78e621a5b",
+                                        "parameters": {
+                                            "macroParams": {},
+                                            "macroMetadata": {
+                                                "macroId": {
+                                                    "value": "83909e30-3690-4e25-be53-9028a2b42323"
+                                                },
+                                                "schemaVersion": {
+                                                    "value": "1"
+                                                },
+                                                "placeholder": [
+                                                    {
+                                                        "type": "icon",
+                                                        "data": {
+                                                            "url": "https://hydrogen.sagittarius.connect.product.adaptavist.com/sr-dispatcher/static/scriptrunner-macro-icon.png"
+                                                        }
+                                                    }
+                                                ],
+                                                "title": "skoopspacefix"
+                                            }
+                                        },
+                                        "localId": "2ed947d9-d743-415c-bde1-55f2696f33f8"
+                                    }
+                                },
+                                {
+                                    "type": "inlineExtension",
+                                    "attrs": {
+                                        "extensionType": "com.atlassian.confluence.macro.core",
+                                        "extensionKey": "sr-macro-a131f8f8-3e3f-4473-af51-1870fbf3bf6d",
+                                        "parameters": {
+                                            "macroParams": {
+                                                "p1": {
+                                                    "value": "https://skoop-jira.atlassian.net/jira/software/c/projects/TC/boards/47?quickFilter=141"
+                                                },
+                                                "p2": {
+                                                    "value": "Open Board"
+                                                },
+                                                "p3": {
+                                                    "value": "20px"
+                                                },
+                                                "p4": {
+                                                    "value": "0px"
+                                                },
+                                                "p5": {
+                                                    "value": "10px"
+                                                },
+                                                "p6": {
+                                                    "value": "10px"
+                                                },
+                                                "p7": {
+                                                    "value": "buttonC"
+                                                }
+                                            },
+                                            "macroMetadata": {
+                                                "macroId": {
+                                                    "value": "8238376cc65b55f11ced283388dd79c3"
+                                                },
+                                                "schemaVersion": {
+                                                    "value": "1"
+                                                },
+                                                "placeholder": [
+                                                    {
+                                                        "type": "icon",
+                                                        "data": {
+                                                            "url": "https://hydrogen.sagittarius.connect.product.adaptavist.com/sr-dispatcher/static/scriptrunner-macro-icon.png"
+                                                        }
+                                                    }
+                                                ],
+                                                "title": "skoop button macro"
+                                            }
+                                        },
+                                        "localId": "5ff41fd7-b6ab-47e2-9160-f2d15936c824"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "extension",
+                            "attrs": {
+                                "layout": "default",
+                                "extensionType": "com.atlassian.confluence.macro.core",
+                                "extensionKey": "gadget",
+                                "parameters": {
+                                    "macroParams": {
+                                        "border": {
+                                            "value": "false"
+                                        },
+                                        "isConfigured": {
+                                            "value": "true"
+                                        },
+                                        "rapidViewId": {
+                                            "value": "47"
+                                        },
+                                        "preferences": {
+                                            "value": "rapidViewId=47&showRapidViewName=false&quickFilters=141%7Cnone&showQuickFilterNames=false&isConfigured=true&refresh=false&=false"
+                                        },
+                                        "quickFilters": {
+                                            "value": "167|none"
+                                        },
+                                        "showRapidViewName": {
+                                            "value": "false"
+                                        },
+                                        "width": {
+                                            "value": "120%; padding-top:0px; margin-left:-30px; overflow-x:scroll; overflow-y: hidden; -webkit-mask-image: linear-gradient(to bottom, black 93%, transparent); mask-image: linear-gradient(to bottom, black 93%, transparent); max-height: 750px;"
+                                        },
+                                        "refresh": {
+                                            "value": "false"
+                                        },
+                                        "showQuickFilterNames": {
+                                            "value": "false"
+                                        },
+                                        "url": {
+                                            "value": "https://skoop-jira.atlassian.net/rest/gadgets/1.0/g/com.pyxis.greenhopper.jira:greenhopper-gadget-rapid-view/gadgets/greenhopper-rapid-view.xml"
+                                        }
+                                    },
+                                    "macroMetadata": {
+                                        "macroId": {
+                                            "value": "93a547c0-7f19-438b-a8ea-71033e6b5cf1"
+                                        },
+                                        "schemaVersion": {
+                                            "value": "1"
+                                        },
+                                        "placeholder": [
+                                            {
+                                                "type": "image",
+                                                "data": {
+                                                    "url": "/s/6452/_/plugins/servlet/gadgets/placeholder?gadgetId=aHR0cHM6Ly9za29vcC1qaXJhLmF0bGFzc2lhbi5uZXQvcmVzdC9nYWRnZXRzLzEuMC9nL2NvbS5weXhpcy5ncmVlbmhvcHBlci5qaXJhOmdyZWVuaG9wcGVyLWdhZGdldC1yYXBpZC12aWV3L2dhZGdldHMvZ3JlZW5ob3BwZXItcmFwaWQtdmlldy54bWw"
+                                                }
+                                            }
+                                        ],
+                                        "title": "com.atlassian.confluence.plugins.gadgets.gadget.label"
+                                    }
+                                },
+                                "localId": "bea728f2-8dca-440f-981b-cb565008eada"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "layoutColumn",
+                    "attrs": {
+                        "width": 33.33
+                    },
+                    "content": [
+                        {
+                            "type": "extension",
+                            "attrs": {
+                                "layout": "default",
+                                "extensionType": "com.atlassian.confluence.macro.core",
+                                "extensionKey": "sr-macro-0a29915d-6444-4dda-827a-0217837f8624",
+                                "parameters": {
+                                    "macroParams": {
+                                        "p1": {
+                                            "value": "project in (NONE) and status not in (Archive)"
+                                        },
+                                        "p2": {
+                                            "value": "Notes and Meetings"
+                                        },
+                                        "p5": {
+                                            "value": "12"
+                                        },
+                                        "p6": {
+                                            "value": "34"
+                                        },
+                                        "p9": {
+                                            "value": "51"
+                                        },
+                                        "p10": {
+                                            "value": "10030"
+                                        }
+                                    },
+                                    "macroMetadata": {
+                                        "macroId": {
+                                            "value": "daa65253-165e-476f-9de6-805e129dc0f5"
+                                        },
+                                        "schemaVersion": {
+                                            "value": "1"
+                                        },
+                                        "placeholder": [
+                                            {
+                                                "type": "icon",
+                                                "data": {
+                                                    "url": "https://hydrogen.sagittarius.connect.product.adaptavist.com/sr-dispatcher/static/scriptrunner-macro-icon.png"
+                                                }
+                                            }
+                                        ],
+                                        "title": "Skoop Ticket Filter v2"
+                                    }
+                                },
+                                "localId": "fcd4b3ff-7c56-4af5-a211-5be1be2e3b1d"
+                            }
+                        },
+                        {
+                            "type": "extension",
+                            "attrs": {
+                                "layout": "default",
+                                "extensionType": "com.atlassian.confluence.macro.core",
+                                "extensionKey": "sr-macro-0a29915d-6444-4dda-827a-0217837f8624",
+                                "parameters": {
+                                    "macroParams": {
+                                        "p1": {
+                                            "value": "project in (NONE) and status not in (Archive)"
+                                        },
+                                        "p2": {
+                                            "value": "Recent Comments"
+                                        },
+                                        "p5": {
+                                            "value": "12"
+                                        },
+                                        "p6": {
+                                            "value": "34"
+                                        },
+                                        "p9": {
+                                            "value": "51"
+                                        },
+                                        "p10": {
+                                            "value": "10030"
+                                        }
+                                    },
+                                    "macroMetadata": {
+                                        "macroId": {
+                                            "value": "9fbeb5ded5bc8c2af365594ad5f45ba3"
+                                        },
+                                        "schemaVersion": {
+                                            "value": "1"
+                                        },
+                                        "placeholder": [
+                                            {
+                                                "type": "icon",
+                                                "data": {
+                                                    "url": "https://hydrogen.sagittarius.connect.product.adaptavist.com/sr-dispatcher/static/scriptrunner-macro-icon.png"
+                                                }
+                                            }
+                                        ],
+                                        "title": "Skoop Ticket Filter v2"
+                                    }
+                                },
+                                "localId": "e4c57335-2c50-4a03-b6dd-968bafe3c049"
+                            }
+                        },
+                        {
+                            "type": "extension",
+                            "attrs": {
+                                "layout": "default",
+                                "extensionType": "com.atlassian.confluence.macro.core",
+                                "extensionKey": "sr-macro-0a29915d-6444-4dda-827a-0217837f8624",
+                                "parameters": {
+                                    "macroParams": {
+                                        "p1": {
+                                            "value": "project in (NONE) and status not in (Archive)"
+                                        },
+                                        "p2": {
+                                            "value": "To Discuss"
+                                        },
+                                        "p5": {
+                                            "value": "12"
+                                        },
+                                        "p6": {
+                                            "value": "34"
+                                        },
+                                        "p9": {
+                                            "value": "51"
+                                        },
+                                        "p10": {
+                                            "value": "10030"
+                                        }
+                                    },
+                                    "macroMetadata": {
+                                        "macroId": {
+                                            "value": "c78eae12507836c353978fce6257a190"
+                                        },
+                                        "schemaVersion": {
+                                            "value": "1"
+                                        },
+                                        "placeholder": [
+                                            {
+                                                "type": "icon",
+                                                "data": {
+                                                    "url": "https://hydrogen.sagittarius.connect.product.adaptavist.com/sr-dispatcher/static/scriptrunner-macro-icon.png"
+                                                }
+                                            }
+                                        ],
+                                        "title": "Skoop Ticket Filter v2"
+                                    }
+                                },
+                                "localId": "c916dd6a-c789-40f5-83bd-c4a55050efd2"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "paragraph"
+        }
+    ],
+    "version": 1
+}

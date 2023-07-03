@@ -57,7 +57,7 @@ div[data-test-id="search-dialog-input"] {
 /* Hide left sidebar in Confluence Cloud */
 #AkSideNavigation {
     display: none !important;
-  }
+}
 
 /* Hide Jira sidebar 
 ._kqswh2mm, ._1pbyg9ti, ._14c1glyw {
@@ -113,8 +113,8 @@ div[data-ds--page-layout--slot="left-sidebar"] {
 
 
 div[data-testid="title-wrapper"] {
-    visibility:hidden !important;
-    height:90px !important;
+    visibility: hidden !important;
+    height: 90px !important;
 }
 
 #ak-side-navigation {
@@ -129,20 +129,21 @@ div[data-testid="title-wrapper"] {
 }
 
 
-.ak-renderer-extension-overflow-container::-webkit-scrollbar { /* WebKit */
+.ak-renderer-extension-overflow-container::-webkit-scrollbar {
+    /* WebKit */
     width: 0;
     height: 0;
 }
 
 .skpmacro {
-    margin-top:14px !important;
+    margin-top: 14px !important;
 }
 
 
 
 
 
- 
+
 .css-pddbfj {
     z-index: 999999999 !important;
 }
@@ -161,7 +162,7 @@ div[data-testid="title-wrapper"] {
 
 
 div[title="Live Search Macro"] {
-  height:35px !important;
+    height: 35px !important;
 }
 
 .search-macro-button {
@@ -173,7 +174,8 @@ div[title="Live Search Macro"] {
     top: 100px !important;
     left: 25px !important;
     height: 100vh !important;
-    width: 30%; /* Adjust this value based on your layout */
+    width: 30%;
+    /* Adjust this value based on your layout */
     overflow-y: auto !important;
 }
 
@@ -182,28 +184,55 @@ div[title="Live Search Macro"] {
     font-size: 1.4em !important;
     font-weight: bold !important;
     color: #34454f !important;
-  }
-  
-  /* Matches elements where data-outline contains a "." (e.g., "1.1", "2.1", etc.) */
-  .TOCFixed [data-outline*="."] span span {
+}
+
+/* Matches elements where data-outline contains a "." (e.g., "1.1", "2.1", etc.) */
+.TOCFixed [data-outline*="."] span span {
     font-size: 1.2em !important;
     font-weight: bold !important;
     color: #515b62 !important;
-  }
+}
 
 
-  @media (max-width: 1024px) {
+@media (max-width: 1024px) {
     .TOCFixed {
-      display: none !important;
+        display: none !important;
     }
-  }
+}
 
 
 
-  
 
-  
+
+
 div[data-testid="ak-editor-main-toolbar"] {
     z-index: 2500 !important;
-      }
-    
+}
+
+
+/* 
+div[data-title="Live Search Macro"] {
+    visibility: hidden !important;
+    height: 90px !important;
+}
+*/
+
+
+
+.buttonBoard {
+    transform: translateY(-21px) !important;
+    margin-right: calc( -69vw + 560px ) !important;
+    margin-left: calc( 69vw - 690px ) !important;
+}
+
+.buttonC {
+    margin-bottom: 20px !important;
+}
+
+@media screen and (max-width: 1023px) {
+    .buttonBoard {
+        transform: translateY(-21px) !important;
+        margin-right: calc( -100vw + 560px ) !important;
+        margin-left: calc( 100vw - 690px ) !important;
+    }
+  }

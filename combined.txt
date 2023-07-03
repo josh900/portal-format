@@ -464,7 +464,9 @@ setTimeout(function() {
     link.type = 'text/css';
     link.href = chrome.extension.getURL('jira.css');
     (document.head || document.documentElement).appendChild(link);
-  }, 100);
+
+
+  }, 1000);
 
 
 
@@ -759,10 +761,38 @@ setTimeout(function() {
     if (collapseButton && collapseButton.getAttribute('aria-expanded') === 'true') {
         collapseButton.click();
     }
-}, 500);
+
+    // Get the elements
+    var titleElement = document.querySelector('.subnavigator-title');
+    var headerElement = document.querySelector('.subnav-page-header');
+  
+    // Swap the text content
+    var temp = titleElement.textContent;
+    titleElement.textContent = headerElement.textContent;
+    headerElement.textContent = temp;
+  
+}, 1500);
 
 
 
+```
+
+Untitled-4.html:
+```
+<div id="gh" class="ghx-gh aui-page-panel ghx-editor">
+    <div id="ghx-header" class="contains-breadcrumbs">
+        <div class="ghx-top-header ghx-expermental-top-header">
+            <div id="ghx-modes-tools">
+                </div>
+                <div id="ghx-view-tools"></div>
+            </div>
+            <div id="ghx-view-selector">
+            </div>
+        </div>
+    </div>
+    <div id="ghx-content-main" class="ghx-content-main">
+    </div>
+</div>
 ```
 
 Above is my chrome extension.
