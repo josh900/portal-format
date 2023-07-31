@@ -28,5 +28,5 @@
       "all_frames": true 
     }
   ],
-  "web_accessible_resources": ["styles.css", "jira.css", "stylesall.css", "stylesall.js"]
+  "web_accessible_resources": ["styles.css", "jira.css", "stylesall.css", "stylesall.js","iframeStyles.js","confoverview.css"]
 }

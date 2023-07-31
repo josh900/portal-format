@@ -1,6 +1,4 @@
-html {
-    --topNavigationHeight: 0px !important;
-}
+
 
 #ap-de\\.communardo\\.confluence\\.plugins\\.subspace__subspace-navigation-view-panel {
     position: fixed !important;
@@ -16,9 +14,11 @@ html {
     width: 100% !important;
 }
 
+/* hide top of confluence
 div[data-test-id="with-sticky-header"] {
     display: none !important;
 }
+*/
 
 div[data-test-id="app-navigation-search"] {
     z-index: 999999999999999999 !important;
@@ -54,10 +54,11 @@ div[data-test-id="search-dialog-input"] {
     display: none;
 }
 
-/* Hide left sidebar in Confluence Cloud */
+/* Hide left sidebar in Confluence Cloud 
 #AkSideNavigation {
     display: none !important;
 }
+*/
 
 /* Hide Jira sidebar 
 ._kqswh2mm, ._1pbyg9ti, ._14c1glyw {
@@ -111,11 +112,6 @@ div[data-ds--page-layout--slot="left-sidebar"] {
 
 
 
-
-div[data-testid="title-wrapper"] {
-    visibility: hidden !important;
-    height: 90px !important;
-}
 
 #ak-side-navigation {
     display: none !important;
@@ -202,15 +198,12 @@ div[title="Live Search Macro"] {
 
 
 
-
-
-
 div[data-testid="ak-editor-main-toolbar"] {
     z-index: 2500 !important;
 }
 
 
-/* 
+/* s
 div[data-title="Live Search Macro"] {
     visibility: hidden !important;
     height: 90px !important;
