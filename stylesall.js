@@ -37,12 +37,11 @@ setTimeout(function () {
 }, 1000);
 
 
-
 setTimeout(function () {
-    if (window.location.href.match(/https:\/\/skoop-jira\.atlassian\.net\/wiki\/spaces\/.+\/overview\/.*/)) {
+    if (window.location.href.match(/https:\/\/skoop-jira\.atlassian\.net\/wiki\/spaces\/.+\/overview\/?.*/)) {
 
-    var link2 = document.createElement('link2');
-    link2.id = 'myExtensionStyles';
+    var link2 = document.createElement('link'); // Changed 'link2' to 'link'
+    link2.id = 'myExtensionStyles2'; // Changed id to avoid duplication
     link2.rel = 'stylesheet';
     link2.type = 'text/css';
     link2.href = chrome.extension.getURL('confoverview.css');
