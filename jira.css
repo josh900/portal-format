@@ -1,9 +1,11 @@
 :root {
-    --leftSidebarWidth:0px !important;
+  /* --leftSidebarWidth:0px !important;
+  */
   }
   
   #ak-side-navigation {
-    display: none !important;
+/*  display: none !important;
+  */
   }
 
   #ak-jira-navigation {
@@ -14,12 +16,14 @@ height:0px !important;
 
   :root {
    --topNavigationHeight: 0px !important;
-    //--jwm-wrapper-height: 0px !important;
-    //--jwm-wrapper-padding: 0px;
+   /*--jwm-wrapper-height: 0px !important;
+    --jwm-wrapper-padding: 0px;
+    */
 }
 
 #ak-project-view-navigation {
-    display:none !important;
+   /* display:none !important;
+   */
 
 }
 

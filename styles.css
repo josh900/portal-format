@@ -125,7 +125,8 @@ div[data-ds--page-layout--slot="left-sidebar"] {
 
 
 #ak-side-navigation {
-    display: none !important;
+   /* display: none !important;
+    */
 }
 
 
@@ -155,11 +156,10 @@ input[data-test-id="search-dialog-input"] {
 }
 
 
-nav {
+
+[aria-label="Global"] {
     visibility: hidden !important;
-
 }
-
 
 
 .css-pddbfj {
