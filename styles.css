@@ -14,66 +14,22 @@
     width: 100% !important;
 }
 
-div[data-test-id="with-sticky-header"] {
- /*
-    display: none !important;
-    
-        margin-top: -100px !important;
-        */
+
+
+#title-text {
+    padding-top: 140px !important;
+    margin-left: -28px;
+
+
 }
 
+#content {
 
+    margin-left: -28px;
+    width: calc(100% + 58px);
+highlighter-context page view
 
-div[data-test-id="content-container-component"] {
- /*
-    display: none !important;
-    */
-    padding: 100px 0px 0px 0px !important;
 }
-
-
-div[data-test-id="content-screen-component"] {
-    /*
-       display: none !important;
-       
-           margin-top: -100px !important;
-           */
-   }
-
-
-   
-div[data-test-id="title-text"] {
-    /*
-       display: none !important;
-       */
-       margin: 100px 0px 0px 0px !important;
-   }
-   
-   
-
-   div[data-test-id="page-content-only"] {
-    /*
-       display: none !important;
-       */
-       padding: 100px 0px 0px 0px !important;
-   }
-
-
-   .renderer-overrides {
-    margin: 100px 0px 0px 0px !important;
-
-   }
-
-   
-   div[data-test-id="space-overview-content"] {
-    /*
-       display: none !important;
-       */
-       padding: 100px 0px 0px 0px !important;
-   }
-   
-
-
 
 div[data-test-id="app-navigation-search"] {
     z-index: 999999999999999999 !important;
