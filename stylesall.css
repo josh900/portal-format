@@ -16,3 +16,9 @@ div[data-testid="breadcrumb"] {
     display: none !important;
 }
 
+
+
+header[role="banner"] {
+    background-color: rgb(255 255 255 / 0%);
+
+  }
