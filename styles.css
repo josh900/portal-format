@@ -3,14 +3,14 @@
 #ap-de\\.communardo\\.confluence\\.plugins\\.subspace__subspace-navigation-view-panel {
     position: fixed !important;
     top: 0 !important;
-    z-index: 1 !important;
+    z-index: 1000 !important;
     width: 100% !important;
 }
 
 #ap-de.communardo.confluence.plugins.subspace__subspace-navigation-view-panel {
     position: fixed !important;
     top: 0 !important;
-    z-index: 1 !important;
+    z-index: 1000 !important;
     width: 100% !important;
 }
 
@@ -21,11 +21,11 @@ div[data-test-id="with-sticky-header"] {
 */
 
 div[data-test-id="app-navigation-search"] {
-    z-index: 999 !important;
+    z-index: 999999999999999999 !important;
 }
 
 div[data-test-id="search-dialog-input"] {
-    z-index: 999 !important;
+    z-index: 999999999999999999 !important;
 }
 
 #communardo-subspace-navigation-bar {
@@ -139,7 +139,7 @@ div[data-ds--page-layout--slot="left-sidebar"] {
 
 
 
- /*
+
 .css-pddbfj {
     z-index: 999999999 !important;
 }
@@ -156,7 +156,6 @@ div[data-ds--page-layout--slot="left-sidebar"] {
     display: none !important;
 }
 
-*/
 
 div[title="Live Search Macro"] {
     height: 35px !important;
@@ -191,31 +190,6 @@ div[title="Live Search Macro"] {
 }
 
 
-
-[data-testid="app-navigation-primary-people-people-primary-button"],
-[data-testid="app-navigation-primary-apps-dropdown"],
-[data-testid="app-navigation-create"],
-[data-testid="app-navigation-primary-templates"],
-[data-testid="app-navigation-home-logo"],
-[data-testid="app-navigation-app-switcher"],
-[data-testid="app-navigation-primary-spaces-dropdown"],
-[data-testid="app-navigation-primary-pages-dropdown"],
-[data-testid="app-navigation-primary-home"],
-[data-testid="app-navigation-primary-custom-home"],
-svg path[d="M8.292 10.293a1.009 1.009 0 000 1.419l2.939 2.965c.218.215.5.322.779.322s.556-.107.769-.322l2.93-2.955a1.01 1.01 0 000-1.419.987.987 0 00-1.406 0l-2.298 2.317-2.307-2.327a.99.99 0 00-1.406 0z"] {
-  display: none;
-}
-
-
-
-
-header[role="banner"] {
-    color: rgb(255 255 255 / 0%);
-  }
-
-
-
-
 @media (max-width: 1024px) {
     .TOCFixed {
         display: none !important;
@@ -225,7 +199,7 @@ header[role="banner"] {
 
 
 div[data-testid="ak-editor-main-toolbar"] {
-    z-index: 1 !important;
+    z-index: 2500 !important;
 }
 
 
