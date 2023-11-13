@@ -14,11 +14,66 @@
     width: 100% !important;
 }
 
-/* hide top of confluence
 div[data-test-id="with-sticky-header"] {
+ /*
     display: none !important;
+    
+        margin-top: -100px !important;
+        */
 }
-*/
+
+
+
+div[data-test-id="content-container-component"] {
+ /*
+    display: none !important;
+    */
+    padding: 100px 0px 0px 0px !important;
+}
+
+
+div[data-test-id="content-screen-component"] {
+    /*
+       display: none !important;
+       
+           margin-top: -100px !important;
+           */
+   }
+
+
+   
+div[data-test-id="title-text"] {
+    /*
+       display: none !important;
+       */
+       margin: 100px 0px 0px 0px !important;
+   }
+   
+   
+
+   div[data-test-id="page-content-only"] {
+    /*
+       display: none !important;
+       */
+       padding: 100px 0px 0px 0px !important;
+   }
+
+
+   .renderer-overrides {
+    margin: 100px 0px 0px 0px !important;
+
+   }
+
+   
+   div[data-test-id="space-overview-content"] {
+    /*
+       display: none !important;
+       */
+       padding: 100px 0px 0px 0px !important;
+   }
+   
+
+
 
 div[data-test-id="app-navigation-search"] {
     z-index: 999999999999999999 !important;
@@ -42,7 +97,7 @@ div[data-test-id="search-dialog-input"] {
 }
 
 .wrapper-space-home-page {
-    margin-top: 80px !important;
+    margin-top: -100px !important;
 }
 
 
