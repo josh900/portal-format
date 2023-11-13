@@ -147,7 +147,18 @@ div[data-ds--page-layout--slot="left-sidebar"] {
 }
 
 
+input[data-test-id="search-dialog-input"] {
+   
+    max-width: 375px !important;
+    float: right !important;
+    
+}
 
+
+nav {
+    visibility: hidden !important;
+
+}
 
 
 
