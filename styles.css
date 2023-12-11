@@ -23,6 +23,14 @@
 
 }
 
+
+#38val-tooltip {
+    display: none !important;
+    visibility: hidden !important;
+    margin-top: -100px !important;
+}
+
+
 #content {
 
     margin-left: -28px;
